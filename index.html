@@ -1421,9 +1421,9 @@ body > * { position:relative; z-index:1; }
                         <span class="slate-label">TAKE</span>
                         <span class="slate-value">00</span>
                     </span>
-                    <span class="slate-field slate-age">
+                    <span class="slate-field slate-roll">
                         <span class="slate-label">ROLL</span>
-                        <span class="slate-value" id="slateAge">--</span>
+                        <span class="slate-value" id="slateRoll">--</span>
                     </span>
                     <span class="slate-field slate-camera">
                         <span class="slate-label">CAMERA</span>
@@ -1662,15 +1662,15 @@ body > * { position:relative; z-index:1; }
     });
 
     /* ---- Dynamic ROLL (birthday: Oct 30 2012) ---- */
-    (function updateSlateAge() {
+    (function updateSlateRoll() {
         const BIRTHDAY_MONTH = 10, BIRTHDAY_DAY = 30, BIRTHDAY_YEAR = 2012;
         const now = new Date();
         let ROLL = now.getFullYear() - BIRTHDAY_YEAR;
         const hadBirthdayThisYear =
             now.getMonth() + 1 > BIRTHDAY_MONTH ||
             (now.getMonth() + 1 === BIRTHDAY_MONTH && now.getDate() >= BIRTHDAY_DAY);
-        if (!hadBirthdayThisYear) age--;
-        const el = document.getElementById('slateAge');
+        if (!hadBirthdayThisYear) ROLL--;
+        const el = document.getElementById('slateRoll');
         if (el) el.textContent = String(ROLL);
     })();
 
